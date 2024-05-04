@@ -96,7 +96,6 @@ linkedList_int* binTree_int::postOrder() {
 
 
 
-
 void preOrderTraversal(linkedList_int* out, treeNode* currentNode) {
 	out->push_back(currentNode->value);
 	if (currentNode->left != nullptr) {

@@ -10,7 +10,7 @@ typedef struct node_int
 class seqList_int
 {
 public:
-	seqList_int() {};
+	seqList_int(){};
 	seqList_int(int len);
 
 	int push_back(int val);
@@ -110,7 +110,7 @@ void seqList_int::sizeManagement()
 	else if (this->currentLen == this->length - 1)
 	{
 		node* p1;
-		p1 = (node*)malloc(sizeof(node) * ((2 * this->length)));//ÉêÇëË«±¶¿Õ¼ä
+		p1 = (node*)malloc(sizeof(node) * ((2 * this->length)));//ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½Õ¼ï¿½
 		this->length *= 2;
 		//std::copy(std::begin(this->list), std::end(this->list), std::begin(this->length));
 		for (int i = 0;i < this->length;i++)
