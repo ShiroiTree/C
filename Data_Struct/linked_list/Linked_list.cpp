@@ -15,7 +15,7 @@ Linked_list<T>::Linked_list()
 }
 
 template <typename T>
-Linked_list<T>::Linked_list(uint32 length)
+Linked_list<T>::Linked_list(int length)
 {
     if (length < 0)
     {
@@ -37,10 +37,32 @@ Linked_list<T>::Linked_list(uint32 length)
 }
 
 template <typename T>
+Linked_list<T>::Linked_list(const Linked_list<T> &copyFrom)
+{
+    listNode<T> *p_copy = copyFrom.head;
+    listNode<T> *p1, *p2;
+    p1 = new listNode<T>;
+    p1->pre = nullptr;
+    p1->value = p_copy->value;
+    this->head = p1;
+    while (p_copy->next != nullptr)
+    {
+        p_copy = p_copy->next;
+        p2 = new listNode<T>;
+        p2->pre = p1;
+        p2->value = p_copy->value;
+        p1 = p2;
+    }
+    this->tail = p1;
+    this->tail->next = nullptr;
+}
+
+
+template <typename T>
 Linked_list<T>::~Linked_list()
 {
     listNode<T> *p1;
-    p1 = head;
+    p1 = this->head;
     while (p1->next != nullptr)
     {
         p1 = p1->next;
@@ -154,4 +176,96 @@ void Linked_list<T>::pop_front()
     p1 = this->head;
     this->head = this->head->next;
     delete p1;
+}
+
+template <typename T>
+T inline Linked_list<T>::back()
+{
+    return this->tail->value;
+}
+
+template <typename T>
+T inline Linked_list<T>::front()
+{
+    return this->tail->value;
+}
+
+template <typename T>
+T inline Linked_list<T>::getVal(int pos)
+{
+    return getNode(pos)->value;
+}
+
+template <typename T>
+void inline Linked_list<T>::setVal(int pos, T val)
+{
+    getNode(pos)->value = T;
+}
+
+template <typename T>
+int Linked_list<T>::length()
+{
+    int len;
+    listNode<T> p1 = this->head;
+    for (len = 0; p1.next ! = nullptr; len++)
+    {
+        p1 = p1.next;
+    }
+    return len;
+}
+
+template <typename T>
+bool inline Linked_list<T>::empty()
+{
+    if (this->head == nullptr)
+    {
+        return true;
+    }
+    return false;
+}
+
+template <typename T>
+void inline Linked_list<T>::clear()
+{
+    listNode<T> *p1 = this->head;
+    while (p1->next != nullptr)
+    {
+        p1 = p1->next;
+        delete p1->pre;
+    }
+    delete p1;
+    this->head = nullptr;
+    this->tail = nullptr;
+}
+
+
+template <typename T>
+listNode<T> inline *Linked_list<T>::begin()
+{
+    return this->head;
+}
+
+template <typename T>
+listNode<T> inline *Linked_list<T>::end()
+{
+    return this->tail;
+}
+
+template <typename T>
+listNode<T> *Linked_list<T>::getNode(int pos)
+{
+    if (pos <= -1)
+    {
+        return this->tail;
+    }
+    else if (pos == 0 || pos == 1)
+    {
+        return this->head;
+    }
+    listNode<T> *p1 = this->head;
+    for (int i = 1; i <= pos && p1->next != nullptr; i++)
+    {
+        p1 = p1->next;
+    }
+    return p1;
 }

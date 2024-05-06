@@ -13,7 +13,7 @@ typedef struct node{
 
 class stack_int{
 public:
-	stack_int(); 
+	stack_int();
 
 	int push_back(int val);
 	int pop_back();

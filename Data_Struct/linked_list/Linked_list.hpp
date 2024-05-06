@@ -1,9 +1,15 @@
+/*
+
+
+
+
+*/
 
 
 #ifndef _LINKED_LIST_H_
 #define _LINKED_LIST_H_
 
-typedef unsigned int uint32;
+//typedef unsigned int uint32;
 
 template <typename T>
 struct listNode
@@ -18,7 +24,8 @@ class Linked_list
 {
 public:
     Linked_list();
-    Linked_list(uint32 length);
+    Linked_list(int length);
+    Linked_list(const Linked_list<T> &copyFrom);
     ~Linked_list();
 
     void insert(int pos, T val);
@@ -28,15 +35,15 @@ public:
     void pop_back();
     void pop_front();
 
-    uint32 length();
+    int length();
 
     bool empty();
     void clear();
 
     T back();
     T front();
-    T getVal(uint32 pos);
-    T setVal(uint32 pos, T val);
+    T getVal(int pos);
+    void setVal(int pos, T val);
     // T &operator[](uint32 pos);
 
     listNode<T> *begin();

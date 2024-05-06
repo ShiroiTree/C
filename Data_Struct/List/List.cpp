@@ -2,7 +2,7 @@
 *
 * The List.cpp are going to rebuilt the vector in stl with template class
 * error
-*	
+*
 *
 *
 *
@@ -16,7 +16,7 @@ data copy
 */
 #include "List.hpp"
 
-template<typename T> 
+template<typename T>
 List<T>::List()
 {
 	this->m_Data = new T[2];
