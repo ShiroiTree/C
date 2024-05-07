@@ -6,8 +6,8 @@
 */
 
 
-#ifndef _LINKED_LIST_H_
-#define _LINKED_LIST_H_
+#ifndef _LINKED_LIST_HPP_
+#define _LINKED_LIST_HPP_
 
 //typedef unsigned int uint32;
 

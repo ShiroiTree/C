@@ -9,13 +9,13 @@
 
 */
 
-#ifndef _STACK_H_
-#define _STACK_H_
+#ifndef _STACK_HPP_
+#define _STACK_HPP_
 
 template <typename T>
 struct stackNode
 {
-    stackNode() : next(nullptr){};
+    stackNode() : next(nullptrs){};
     T value;
     struct stackNode<T> *next;
 };

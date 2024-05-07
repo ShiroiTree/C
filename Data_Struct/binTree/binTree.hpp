@@ -7,8 +7,8 @@
 
 */
 
-#ifndef _BINTREE_H_
-#define _BINTREE_H_
+#ifndef _BINTREE_HPP_
+#define _BINTREE_HPP_
 
 #include "../Linked_list/Linked_list.hpp"
 
