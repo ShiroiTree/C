@@ -15,7 +15,7 @@
 template <typename T>
 struct stackNode
 {
-    stackNode() : next(nullptrs){};
+    stackNode() : next(nullptr){};
     T value;
     struct stackNode<T> *next;
 };

@@ -28,11 +28,11 @@ public:
     bool empty();
     void clear();
 
-    int lenth();
+    size_T lenth();
     T *begin();
     T *end();
 
-    T &operator[](size_T pointer);
+    T &operator[](int pointer);
 
 private:
     T *m_Data;

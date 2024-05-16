@@ -23,9 +23,9 @@ Stack<T>::~Stack()
 template <typename T>
 void inline Stack<T>::push_back(T val)
 {
-    stackNode<T> p1 = new stackNode;
-    p1.value = val;
-    p1.next = nullptr;
+    stackNode<T> *p1 = new stackNode<T>;
+    p1->value = val;
+    p1->next = head;
     this->head = p1;
 }
 
@@ -36,9 +36,9 @@ void inline Stack<T>::pop_back()
     {
         return;
     }
-    stackNode<T> p1;
+    stackNode<T> *p1;
     p1 = this->head;
-    p1 = p1.next;
+    p1 = p1->next;
     delete this->head;
     this->head = p1;
 }
@@ -50,21 +50,16 @@ T inline Stack<T>::back()
 }
 
 template <typename T>
-void Stack<T>::clear()
+void inline Stack<T>::clear()
 {
-    stackNode<T> *p1;
-    p1 = this->head;
-    while (p1->next != nullptr)
+    while (!empty())
     {
-        p1 = p1->next;
-        delete p1->pre;
+        pop_back();
     }
-    delete p1;
-    this->head = nullptr;
 }
 
 template <typename T>
-bool Stack<T>::empty()
+bool inline Stack<T>::empty()
 {
     if (this->head == nullptr)
     {

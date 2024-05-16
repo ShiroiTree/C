@@ -14,7 +14,7 @@
 
 #include "../List/List.hpp"
 #include "binTree.hpp"
-#include "m_DataType.hpp"
+typedef unsigned int uint32;
 
 template <typename T>
 class maxHeap

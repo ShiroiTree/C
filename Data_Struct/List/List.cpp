@@ -29,7 +29,7 @@ List<T>::List(size_T len)
 {
 	if(len<0)
 	{
-		exit(0);
+		//exit(0);
 	}
 	else if (len == 1 || len == 0)
 	{
@@ -115,7 +115,7 @@ void inline List<T>::setVal(size_T pos, T value)
 {
 	if (pos >= m_Size - 1 || pos <= 0)
 	{
-		exit(0);
+		//exit(0);
 	}
 	this->m_Data[pos] = value;
 }
@@ -125,7 +125,7 @@ T List<T>::getVal(size_T pos)
 {
 	if (pos >= m_Size - 1 || pos <= 0)
 	{
-		exit(0);
+		//exit(0);
 	}
 	return this->m_Data[pos];
 }
@@ -143,15 +143,20 @@ T inline *List<T>::end()
 }
 
 template <typename T>
-int inline List<T>::lenth()
+size_T inline List<T>::lenth()
 {
-	return this->m_Data;
+	return this->m_tailptr;
 }
 
 //operator
 
 template <typename T>
-T &List<T>::operator[](size_T pointer)
+T &List<T>::operator[](int pointer)
 {
+	while (pointer >= this->m_Size - 1)
+	{
+		sizeIncrease();
+	}
+	this->m_tailptr = pointer;
 	return this->m_Data[pointer];
 }
