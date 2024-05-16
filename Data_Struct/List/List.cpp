@@ -111,7 +111,7 @@ T inline List<T>::back()
 }
 
 template <typename T>
-void List<T>::setVal(size_T pos, T value)
+void inline List<T>::setVal(size_T pos, T value)
 {
 	if (pos >= m_Size - 1 || pos <= 0)
 	{
@@ -131,22 +131,27 @@ T List<T>::getVal(size_T pos)
 }
 
 template <typename T>
-T *List<T>::begin()
+T inline *List<T>::begin()
 {
 	return this->m_Data;
 }
 
 template <typename T>
-T *List<T>::end()
+T inline *List<T>::end()
 {
 	return &this->m_Data[this->m_tailptr];
 }
 
-template class List<char>;
-template class List<unsigned char>;
-template class List<short>;
-template class List<unsigned short>;
-template class List<int>;
-template class List<unsigned int>;
-template class List<float>;
-template class List<double>;
+template <typename T>
+int inline List<T>::lenth()
+{
+	return this->m_Data;
+}
+
+//operator
+
+template <typename T>
+T &List<T>::operator[](size_T pointer)
+{
+	return this->m_Data[pointer];
+}

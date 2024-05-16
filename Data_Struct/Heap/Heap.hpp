@@ -9,24 +9,30 @@
 
 */
 
-
 #ifndef _HEAP_HPP_
 #define _HEAP_HPP_
 
 #include "../List/List.hpp"
+#include "binTree.hpp"
+#include "m_DataType.hpp"
 
 template <typename T>
 class maxHeap
 {
 public:
     maxHeap();
+    // maxHeap(const T[] &data[]);
+    maxHeap(List<T> *date);
+    ~maxHeap();
 
     void push();
     void pop();
     void top();
 
 private:
-    List<T> *heap;
+    void update(uint32 depth);
+    uint32 deep, tailptr;
+    List<T> *m_data;
 };
 
 template <typename T>
@@ -40,7 +46,7 @@ public:
     void top();
 
 private:
-    List<T> *heap;
+    List<T> *m_data;
 };
 
 #endif

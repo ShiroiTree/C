@@ -28,8 +28,11 @@ public:
     bool empty();
     void clear();
 
+    int lenth();
     T *begin();
     T *end();
+
+    T &operator[](size_T pointer);
 
 private:
     T *m_Data;
@@ -37,5 +40,14 @@ private:
 
     void sizeIncrease();
 };
+
+template class List<char>;
+template class List<unsigned char>;
+template class List<short>;
+template class List<unsigned short>;
+template class List<int>;
+template class List<unsigned int>;
+template class List<float>;
+template class List<double>;
 
 #endif
